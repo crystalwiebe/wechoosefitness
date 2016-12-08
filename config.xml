@@ -9,5 +9,5 @@
   <preference name="orientation" value="portrait" />
   <preference name="target-device" value="universal" />
   <preference name="fullscreen" value="false" />
-  <icon src="Images/logo - Copy - Copy.PNG" platform="ios" width="57" height="57" density="mdpi" />
+  <icon src="Images/logo - Copy - Copy.PNG" />
 </widget>
