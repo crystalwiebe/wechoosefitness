@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.myapp.mobile" version="2.25" xmlns="http://www.w3.org/ns/widgets">
+  <name>We Choose Fitness</name>
+  <description>Add your macros, weight, workouts and measurements to your WeChooseFitness account.</description>
+  <author email="coachmattfitness@gmail.com" href="http://www.wechoosefitness.com">We Choose Fitness</author>
+  <content src="index.html"></content>
+  <preference name="phonegap-version" value="cli-6.3.0" />
+  <preference name="permissions" value="none" />
+  <preference name="orientation" value="portrait" />
+  <preference name="target-device" value="universal" />
+  <preference name="fullscreen" value="false" />
+</widget>
