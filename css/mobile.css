@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+html, body {
+	font: 12px/15px sans-serif;
+	background: #fff;
+	color: #000;
+	margin: 0;
+	}
+#page1 {
+	display: none;
+}
+#page2 {
+	display: none;
+}
+
+.nomobile {
+	display: none;
+}
+#page3 {
+	display: none;
+}
+
+#page4 {
+	display: none;
+}
+
+#page5 {
+	display: none;
+}
+#page1mobile {
+	width: 100%;
+}
+.style3 {
+	font-family: Calibri;
+	font-size: 3em;
+	color: #3F3F3F;
+	font-weight: bold;
+}
+
+.style13 {
+	font: Calibri;
+	font-family: Calibri;
+	color: #000000;
+	font-size: 1.2em;
+}
+.buttons {
+	background-image: url(../Images/Green.png);
+	background-size: 80px 80px;
+	background-repeat: no-repeat;
+	align: center;
+	width: 80px;
+	height: 80px;
+	border: 5px solid #fff;
+	text-align: center;
+	padding-top:20px;
+}
+@media only screen and (max-device-width: 480px) { 
+
+	html {
+		-webkit-text-size-adjust: none;
+		}
+
+}

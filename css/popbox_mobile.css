@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* CSS Document */
+.style1 {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #FFFFFF;
+}
+.style2 {
+	color: #33333;
+	font-weight: bold;
+	font-size: 18px;
+}
+.box {
+	width:300px;
+}
+
+.box2 {
+	height:80px; 
+	width:300px; 
+}
+.style3 {
+	font-family: Calibri;
+	font-size: 12px;
+	color: #FBFBFB;
+}
+.style8 {
+	font-size: 12px;
+	font-family: Calibri;
+	color: #003300;
+}
+.style10 {
+	font-family: Calibri;
+	font-size: 20px;
+}
+body {
+	background-color: #F4F4F4;
+}
+
+.textbox{ 
+	background:#FFFFFF;
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-right: 1px solid #999999;
+	font-family: Calibri;
+	width: 296px;
+	height: 40px;
+	font-size: 16px;
+	color:#999999;
+	padding-left:5px;
+}
+.textbox:hover{ 
+	border-left: 3px solid #FF0000;
+}
+
+.textbox2{ 
+	background:#FFFFFF;
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-right: 1px solid #999999;
+	font-family: Calibri;
+	width: 294px;
+	font-size: 16px;
+	color:#999999;
+	padding-left:5px;
+}
+.textbox2:hover{ 
+	border-left: 3px solid #FF0000;
+}
+
+
+.textbox3{ 
+	background:#FFFFFF;
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-right: 1px solid #999999;
+	font-family: Calibri;
+	width: 294px;
+	height: 80px;
+	font-size: 16px;
+	color:#999999;
+	padding-left:5px;
+}
+.textbox3:hover{ 
+	border-left: 3px solid #FF0000;
+}
+
+.submitbox{ 
+	background: #CCCCCC;
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-right: 1px solid #999999;
+	font-family: Calibri;
+	padding:5px;
+	width: 303px;
+	height: 40px;
+	font-size: 16px;
+	color:#999999;
+	text-align: left;
+}
+
+.submitbox:hover{ 
+	border-left: 3px solid #FF0000;
+}
+.Estilo1 {
+	font-size: 12px;
+	color: #999999;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF0000;
+}
+a:active {
+	text-decoration: none;
+}
+img
+{
+    vertical-align: middle;
+}
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto; 
+}
+body {
+	background-color: #353133;
+	margin: 0;
+	text-align:center;
+}
+.style2 {
+	font: Arial;
+	font-family: Arial;
+	color: #FFFFFF;
+	font-size: 24px;
+	font-weight: bold;
+}
+.pc {
+	display: none;
+}

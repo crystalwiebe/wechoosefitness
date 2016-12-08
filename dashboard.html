@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>We Choose Fitness</title>
+<link rel="stylesheet" href="css/buttons.css" type="text/css"/>
+<link rel="stylesheet" href="css/mobile.css" type="text/css"/>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="js/get_url_variables.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$.ajax({
+  type: 'post',
+  url: 'http://wechoosefitness.com/Mobile App/php/client_name.php',
+  data: "user="+user,
+  success: function (response) {
+   $( '#client_name' ).html(response);
+  }
+  });
+});
+
+$(document).ready(function(){
+$.ajax({
+  type: 'post',
+  url: 'http://wechoosefitness.com/Mobile App/php/inches_lost.php',
+  data: "user="+user,
+  success: function (response) {
+   $( '#inches_lost' ).html(response);
+  }
+  });
+});
+
+
+$(document).ready(function(){
+$.ajax({
+  type: 'post',
+  url: 'http://wechoosefitness.com/Mobile App/php/lbs_lost.php',
+  data: "user="+user,
+  success: function (response) {
+   $( '#lbs_lost' ).html(response);
+  }
+  });
+});
+
+$(document).ready(function(){
+$.ajax({
+  type: 'post',
+  url: 'http://wechoosefitness.com/Mobile App/php/days_trained.php',
+  data: "user="+user,
+  success: function (response) {
+   $( '#days_trained' ).html(response);
+  }
+  });
+});
+
+
+$(document).ready(function(){
+document.getElementById("addmacro").onclick = function() {
+	window.location=("addmacro.html?userID=" + user);
+};
+});
+
+$(document).ready(function(){
+document.getElementById("addmeasurements").onclick = function() {
+	window.location=("addmeasurements.html?userID=" + user);
+};
+});
+
+$(document).ready(function(){
+document.getElementById("addweight").onclick = function() {
+	window.location=("addweight.html?userID=" + user);
+};
+});
+</script>
+</head>
+
+<body>
+<div id="page1mobile" align="center" style="padding-top: 20px; padding-bottom: 10px">
+  <img src="Images/logo.png" alt="" width="80%"/>
+   <p><div id="client_name" class="style3"></div></p>
+  <div>
+      <div><div align="center" style="width:33.3%; float:left"><div class="buttons style13"><strong>Pounds<br />Lost<br />
+      <div id="lbs_lost"></div></strong></div></div>
+      <div align="center" style="width:33.3%; float:left"><div class="buttons style13" ><strong>Inches<br />Lost<br />
+      <div id="inches_lost"></div></strong></div></div>          
+      <div align="center" style="width:33.3%; float:left"><div class="buttons style13"><strong>Days<br />Trained<br />
+      <div id="days_trained"></div></strong></div></div>
+   </div>  
+   <div align="center" style="width: 100%">
+   <div align="center" style="float:left; padding-left: 10px; padding-right: 20px; padding-bottom: 20px; width: 33.3%; box-sizing:border-box">
+        <a id="addmacro" title="Add Macros" class="button button-rounded button-raised button-primary"><img src="Images/cutlery.png" width="63" height="65" alt=""/></a>
+      </div>
+      <div align="center" style="float:left; padding-left: 20px; padding-right: 20px; padding-bottom: 20px; width: 33.3%; box-sizing:border-box">
+        <a id="addweight" title="Add Weight" class="button button-rounded button-raised button-primary"><img src="Images/scale.png" width="63" height="65" alt=""/></a>
+      </div>
+      <div align="center" style="float:left; padding-left: 20px; padding-right: 10px; padding-bottom: 20px; width: 33.3%; box-sizing:border-box">
+        <a href="addworkout.html" title="Add Workout" class="button button-rounded button-raised button-primary"><img src="Images/weights.png" width="63" height="65" alt="" style="filter:brightness(140%);"/></a>
+      </div> 
+      </div>
+   <div align="center" style="width: 100%">
+      <div align="center" style="float:left; padding-left: 20px; padding-bottom: 20px; width: 50%; box-sizing:border-box">
+        <a id="addmeasurements" title="Add Measurements" class="button button-rounded button-raised button-primary"><img src="Images/measurements.png" width="63" height="65" alt="" style="filter:brightness(140%);"/></a>
+      </div>
+      <div align="center" style="float:left; padding-rigth: 20px; padding-bottom: 20px; width: 50%; box-sizing:border-box">
+        <a href="Contact.html" title="Send a Message" class="button button-rounded button-raised button-primary"><img src="Images/email.png" width="63" height="65" alt=""/></a>
+      </div>     
+      </div>  
+   </div>
+   </div>
+</body>
+</html>

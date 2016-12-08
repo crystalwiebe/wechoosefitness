@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="css/popbox_mobile.css" type="text/css"/>
+<script src="js/get_url_variables.js"></script>
+<title>Record Measurements</title>
+<script language="javascript">
+function validateForm()
+{
+
+var x=document.forms["addmeasurements"]["neck"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your neck measurements.");
+  addmeasurements.neck.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["chest"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your chest measurements");
+  addmeasurements.chest.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["waist"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your waist measurements.");
+  addmeasurements.waist.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["hips"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your hip measurements.");
+  addmeasurements.hips.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["larm"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your left arm measurements.");
+  addmeasurements.larm.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["rarm"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your right arm measurements");
+  addmeasurements.rarm.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["lforearm"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your left forearm measurements.");
+  addmeasurements.lforearm.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["rforearm"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your right forearm measurements.");
+  addmeasurements.rforearm.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["lleg"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your left thigh measurements.");
+  addmeasurements.lleg.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["rleg"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your right thigh measurements");
+  addmeasurements.rleg.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["lcalf"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your left calf measurements.");
+  addmeasurements.lcalf.focus();
+  return false;
+  }
+
+var x=document.forms["addmeasurements"]["rcalf"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your right calf measurements.");
+  addmeasurements.rcalf.focus();
+  return false;
+  }
+  
+var x=document.forms["addmeasurements"]["dt"].value
+if (x==null || x=="")
+  {
+  alert("Please enter the date.");
+  addmeasurements.dt();
+  return false;
+  }
+}
+
+$(document).ready(function(){
+	 $("#login").click(function(){	
+		  neck=$("#neck").val();
+		  chest=$("#chest").val();
+		  waist=$("#waist").val();
+		  hips=$("#hips").val();
+		  larm=$("#larm").val();
+		  rarm=$("#rarm").val();
+		  lforearm=$("#lforearm").val();
+		  rforearm=$("#rforearm").val();
+		  lleg=$("#lleg").val();
+		  rleg=$("#rleg").val();
+		  lcalf=$("#lcalf").val();
+		  rcalf=$("#rcalf").val();
+		  dt=$("#dt").val();
+		  $.ajax({
+		   type: "POST",
+		   url: "http://wechoosefitness.com/Mobile App/php/addmeasurementssave.php",
+		   data: "neck="+neck+"&chest="+chest+"&waist="+waist+"&hips="+hips+"&larm="+larm+"&rarm="+rarm+"&lforearm="+lforearm+"&rforearm="+rforearm+"&rleg="+rleg+"&lleg="+lleg+"&rcalf="+rcalf+"&lcalf="+lcalf+"&dt="+dt+"&user="+user,
+		   success: function(data){    
+			if(data=='true')    {
+			 window.location=("addmeasurementsave.html?userID=" + user);
+			}
+			else if(data=='false')   {
+			 window.location=("addmeasurementduplicate.html?userID=" + user + "&neck="+neck+"&chest="+chest+"&waist="+waist+"&hips="+hips+"&larm="+larm+"&rarm="+rarm+"&lforearm="+lforearm+"&rforearm="+rforearm+"&rleg="+rleg+"&lleg="+lleg+"&rcalf="+rcalf+"&lcalf="+lcalf+ "&dt=" + dt);
+			}
+			else    {
+			 window.location=("addmeasurementerror.html?userID=" + user);
+			}
+		   },
+		  });
+		return false;
+	});
+});
+
+
+$(document).ready(function(){
+document.getElementById("dashboard").onclick = function() {
+	window.location=("dashboard.html?userID=" + user);
+};
+});
+</script> 
+</head>
+
+<body>
+<div class="outer">
+<div class="middle">
+<div class="inner">
+	<form action="./" method="post" name="addmeasurements"  id="addmeasurements"  onsubmit="return validateForm()">
+      <p class="style2">RECORD MEASUREMENTS</p>
+      <p><span class="style1">Upper Body</span><br />
+  <input name="neck" type="text" class="textbox" id="neck" placeholder="neck" title="neck"><br>
+  <input name="chest" type="text" class="textbox" id="chest" placeholder="chest" title="chest"><br>
+  <input name="waist" type="text" class="textbox" id="waist" placeholder="waist" title="waist"><br>
+  <input name="hips" type="text" class="textbox" id="hips" placeholder="hips" title="hips"><br><br />
+      <span class="style1">Arms</span><br />
+  <input name="larm" type="text" class="textbox" id="larm" placeholder="left arm" title="left arm"><br>
+  <input name="rarm" type="text" class="textbox" id="rarm" placeholder="right arm" title="right arm"><br>
+  <input name="lforearm" type="text" class="textbox" id="lforearm" placeholder="left forearm" title="left forearm"><br>
+  <input name="rforearm" type="text" class="textbox" id="rforearm" placeholder="right forearm" title="rright forearm"><br><br />
+  	  <span class="style1">Legs</span><br />
+  <input name="lleg" type="text" class="textbox" id="lleg" placeholder="left thigh" title="left thigh"><br>
+  <input name="rleg" type="text" class="textbox" id="rleg" placeholder="right thigh" title="right thigh"><br>
+  <input name="lcalf" type="text" class="textbox" id="lcalf" placeholder="left calf" title="left calf"><br>
+  <input name="rcalf" type="text" class="textbox" id="rcalf" placeholder="right calf" title="right calf"><br><br />
+        <input type="date" name="dt" id="dt" class="textbox"><br>
+        <input type="submit" class="submitbox" value="Save" id="login" name="login" >
+      </p>
+	</form>
+    
+      <div class="mobile"><p class="style1"><a id="dashboard" class="style1">Back to Dashboard</a></p></div>
+</div>
+</div>
+</div>
+</body>
+</html>

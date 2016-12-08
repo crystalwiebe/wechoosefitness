@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="css/popbox_mobile.css" type="text/css"/>
+<script src="js/get_url_variables.js"></script>
+<title>Record Macros</title>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="js/get_url_variables.js"></script>
+<script src="js/get_url_variables_macros.js"></script>
+<script>
+$(document).ready(function(){
+document.getElementById("dashboard").onclick = function() {
+	window.location=("dashboard.html?userID=" + user);
+};
+});
+
+
+$(document).ready(function(){
+document.getElementById("addmacro").onclick = function() {
+	window.location=("addmacro.html?userID=" + user);
+};
+});
+</script>
+</head>
+
+<body>
+<div class="outer">
+<div class="middle">
+<div class="inner">
+      <p class="style2">RECORD MACROS</p>
+      <p class="style1">An error occurred with your submission. Please ensure all fields have been completed and try again.</p>
+      <p class="style1"><a id="addmacro" class="style1">Return to Add Macro link.</a></p>
+      <div class="mobile"><p class="style1"><a id="dashboard" class="style1">Back to Dashboard</a></p></div>
+</div>
+</div>
+</div>
+</body>
+</html>

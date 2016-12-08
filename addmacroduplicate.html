@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="css/popbox_mobile.css" type="text/css"/>
+<script src="js/get_url_variables.js"></script>
+<title>Record Macros</title>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="js/get_url_variables.js"></script>
+<script src="js/get_url_variables_macro.js"></script>
+<script>
+$(document).ready(function(){
+document.getElementById("dashboard").onclick = function() {
+	window.location=("dashboard.html?userID=" + user);
+};
+});
+
+$(document).ready(function(){
+	 $("#add_duplicate_macro").click(function(){	
+		  $.ajax({
+		   type: "POST",
+		   url: "http://wechoosefitness.com/Mobile App/php/addmacroduplicatesave.php",
+		   data: "carb="+carb+"&fat="+fat+"&protein="+protein+"&dt="+dt+"&user="+user,
+		   success: function(data){    
+			if(data=='true')    {
+			 window.location=("addmacrosave.html?userID=" + user);
+			}
+			else    {
+			 window.location=("addmacroerror.html?userID=" + user);
+			}
+		   },
+		  });
+		return false;
+	});
+});
+</script>
+</head>
+
+<body>
+<div class="outer">
+<div class="middle">
+<div class="inner">
+      <p class="style2">RECORD MACROS</p>
+      <p class="style1">An entry has already been made for this day. </p>
+      <p class="style1">To update the information based on the current submission, plase <a class="style1" id="add_duplicate_macro">CLICK HERE</a>. </p>
+      <div class="mobile"><p class="style1"><a id="dashboard" class="style1">Back to Dashboard</a></p></div>
+</div>
+</div>
+</div>
+</body>
+</html>

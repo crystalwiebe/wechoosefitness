@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <style type="text/css">
+<!--
+.style1 {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #333333;
+}
+.style2 {
+	color: #33333;
+	font-weight: bold;
+	font-size: 18px;
+}
+.box {
+	width:300px;
+}
+
+.box2 {
+	height:80px; 
+	width:300px; 
+}
+.style3 {
+	font-family: Calibri;
+	font-size: 18;
+	color: #000000;
+}
+.style8 {
+	font-size: 12px;
+	font-family: Calibri;
+	color: #003300;
+}
+.style10 {
+	font-family: Calibri;
+	font-size: 20px;
+}
+body {
+	background-color: #F4F4F4;
+}
+
+.textbox{ 
+	background:#FFFFFF;
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-right: 1px solid #999999;
+	font-family: Calibri;
+	width: 296px;
+	height: 40px;
+	font-size: 16px;
+	color:#999999;
+	padding-left:5px;
+}
+.textbox:hover{ 
+	border-left: 3px solid #FF0000;
+}
+
+.submitbox{ 
+	background: #CCCCCC;
+	border-left: 1px solid #999999;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;
+	border-right: 1px solid #999999;
+	font-family: Calibri;
+	padding:5px;
+	width: 303px;
+	height: 40px;
+	font-size: 16px;
+	color:#999999;
+	text-align: left;
+}
+
+.submitbox:hover{ 
+	border-left: 3px solid #FF0000;
+}
+.Estilo1 {
+	font-size: 12px;
+	color: #999999;
+}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF0000;
+}
+a:active {
+	text-decoration: none;
+}
+img
+{
+    vertical-align: middle;
+}
+-->
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+$(document).ready(function(){
+	 $("#login").click(function(){	
+		  username=$("#name").val();
+		  password=$("#word").val();
+		  $.ajax({
+		   type: "POST",
+		   url: "http://wechoosefitness.com/Mobile App/php/confirmuser.php",
+			data: "name="+username+"&pwd="+password,
+		   success: function(data){    
+			if(data!='false')    {
+			 window.location=("dashboard.html?userID=" + data);
+			}
+			else    {
+			 window.location=("index2.html");
+			}
+		   },
+		  });
+		return false;
+	});
+});
+</script>
+
+<script type="text/javascript">
+      function makeItPassword()
+      {
+         document.getElementById("passcontainer")
+            .innerHTML = "<input id=\"word\" name=\"word\" type=\"password\" class=\"textbox\"/>";
+         document.getElementById("word").focus();
+      }
+   </script>
+    <title>We Choose Fitness Login</title>
+</head>
+
+<body>
+<div class="Center-Container">
+  <div align="center" class="box">
+    <form action="./" method="post">
+    <div align="center">
+    <div style="height:200px">
+    <div><span class="style1 style2 style10"><img src="Images/logo.png" alt="" width="298" height="250"/><br />
+      </span></div>
+	  <div style="clear:both"></div>
+    <div style="padding-top:10px;"></div>
+    </div><br />
+      <input name="name" id="name" type="text" class="textbox" placeholder="username"/><br />
+      <span id="passcontainer"><input name="word" id="word"onfocus="return makeItPassword()"  type="text" class="textbox" value="password"/></span><br />
+      <input type="submit" id="login" name="login" class="submitbox" value="SIGN IN"/>
+    </div>
+	<div style="clear:both"></div>
+</form>
+    <div align="left">
+      <p class="Estilo1"><br />
+      <a href="resetusername.html" class="Estilo1">Forgot your username?</a></p>
+    </div>
+  </div>
+</div>
+
+	
+</div>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="css/popbox_mobile.css" type="text/css"/>
+<script src="js/get_url_variables.js"></script>
+<title>Record Macros</title>
+<script language="javascript">
+function validateForm()
+{
+
+var x=document.forms["add_macro"]["carb"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your carb macro.");
+  add_macro.carb.focus();
+  return false;
+  }
+
+var x=document.forms["add_macro"]["fat"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your fat macro");
+  add_macro.fat.focus();
+  return false;
+  }
+
+var x=document.forms["add_macro"]["protein"].value
+if (x==null || x=="")
+  {
+  alert("Please enter your protein macro.");
+  add_macro.protein.focus();
+  return false;
+  }
+  
+var x=document.forms["add_macro"]["dt"].value
+if (x==null || x=="")
+  {
+  alert("Please enter the date.");
+  add_macro.t();
+  return false;
+  }
+}
+
+$(document).ready(function(){
+	 $("#login").click(function(){	
+		  carb=$("#carb").val();
+		  fat=$("#fat").val();
+		  protein=$("#protein").val();
+		  dt=$("#dt").val();
+		  $.ajax({
+		   type: "POST",
+		   url: "http://wechoosefitness.com/Mobile App/php/addmacrosave.php",
+		   data: "carb="+carb+"&fat="+fat+"&protein="+protein+"&dt="+dt+"&user="+user,
+		   success: function(data){    
+			if(data=='true')    {
+			 window.location=("addmacrosave.html?userID=" + user);
+			}
+			else if(data=='false')   {
+			 window.location=("addmacroduplicate.html?userID=" + user + "&carb=" + carb + "&fat=" + fat + "&protein=" + protein + "&dt=" + dt);
+			}
+			else    {
+			 window.location=("addmacroerror.html?userID=" + user);
+			}
+		   },
+		  });
+		return false;
+	});
+});
+
+
+$(document).ready(function(){
+document.getElementById("dashboard").onclick = function() {
+	window.location=("dashboard.html?userID=" + user);
+};
+});
+</script>
+</head>
+
+<body>
+<div class="outer">
+<div class="middle">
+<div class="inner">
+	<form action="../" method="post" name="add_macro"  id="add_macro"  onsubmit="return validateForm()">
+      <p class="style2">RECORD MACROS</p>
+      <p>
+  <input type="text" name="carb" id="carb" placeholder="carbs" class="textbox"><br>
+  <input type="text" name="fat" id="fat" placeholder="fat" class="textbox"><br>
+  <input type="text" name="protein" id="protein" placeholder="protein" class="textbox"><br>
+        <input type="date" name="dt" id="dt" class="textbox"><br>
+        <input type="submit" class="submitbox" value="Save" id="login" name="login" >
+      </p>
+	</form>
+    
+      <div class="mobile"><p class="style1"><a id="dashboard" class="style1">Back to Dashboard</a></p></div>
+</div>
+</div>
+</div>
+</body>
+</html>
